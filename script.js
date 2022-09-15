@@ -58,6 +58,10 @@ const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
     return true;
   }
+  
+  else if(key != questionText){
+    errorCount++;
+  }
   return false;
 };
 
@@ -67,7 +71,8 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
+  const modalTimer = (finishTime - startTime) / 1000;
+  const timeTaken = parseInt(modalTimer);
 
   // show result modal
   resultModal.innerHTML = "";
